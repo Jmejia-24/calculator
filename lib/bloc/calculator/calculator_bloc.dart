@@ -18,6 +18,12 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
           mathResult: '0',
           secondNumber: '0',
           operation: 'none');
+    } else if (event is AddNumber) {
+      yield CalculatorState(
+        firstNumber: '0',
+        secondNumber: '0',
+        operation: 'none',
+        mathResult: (state.mathResult == '0') ? event.number : state.mathResult + event.number);
     }
   }
 }
